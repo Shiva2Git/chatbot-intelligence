@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'base.html' %}
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code-X</title>
+</head>
+<body>
+
+{% block content %}
+
+<h3> ASK ME ANYTHING</h3>
+<br>
+<br>
+<form method="post">
+    {% csrf_token %}
+     {% include 'search.html'%}
+    <!-- <button type="button" class="btn btn-primary mt-3">Submit</button> -->
+</form>
+{% if response %}
+    <div>
+        {{ response|safe }}
+    </div>
+
+{% endif %}
+
+{% endblock content %}
+    
+</body>
+</html>
+
+

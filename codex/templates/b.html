@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code-X</title>
+</head>
+<body>
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="/static/css/a.css" type="text/css">
+
+<h3> ASK ME ANYTHING ...</h3>
+<form method="post" class="box">
+    {% csrf_token %}
+    <input type="text" class="form-control" name="user_input" placeholder="Any Question ?">
+    <button type="submit" class="btn btn-primary mt-3" hidden></button>
+</form>
+<br>
+<br>
+<br>
+<br>
+{% if response %}
+    <div class="ans">
+        {{ response|safe }}
+    </div>
+
+{% endif %}
+
+{% endblock content %}
+    
+</body>
+</html>
+
+
